@@ -1,0 +1,136 @@
+[2025-04-01 08:01:23.145] [INFO] [AppServer] - Application started successfully (v2.1.3)
+[2025-04-01 08:01:23.256] [INFO] [ConfigManager] - Loading configuration from /etc/myapp/config.json
+[2025-04-01 08:01:23.389] [DEBUG] [DatabaseConnector] - Establishing database connection to mysql://db.example.com:3306/myapp
+[2025-04-01 08:01:23.567] [INFO] [DatabaseConnector] - Database connection established successfully
+[2025-04-01 08:01:23.678] [INFO] [CacheManager] - Initializing cache with 256MB max size
+[2025-04-01 08:01:23.902] [INFO] [AuthenticationService] - JWT authentication enabled
+[2025-04-01 08:01:24.012] [INFO] [HttpServer] - HTTP server listening on port 8080
+[2025-04-01 08:01:24.123] [INFO] [HttpsServer] - HTTPS server listening on port 8443
+[2025-04-01 08:01:24.345] [DEBUG] [SessionManager] - Session timeout set to 30 minutes
+[2025-04-01 08:02:56.781] [INFO] [RequestHandler] - GET /api/v1/users (IP: 192.168.1.105) [200] - 78ms
+[2025-04-01 08:03:12.456] [INFO] [RequestHandler] - POST /api/v1/login (IP: 192.168.1.105) [200] - 125ms
+[2025-04-01 08:03:13.789] [DEBUG] [AuthenticationService] - User 'admin@example.com' authenticated successfully
+[2025-04-01 08:03:45.123] [INFO] [RequestHandler] - GET /api/v1/dashboard (IP: 192.168.1.105) [200] - 231ms
+[2025-04-01 08:04:12.789] [INFO] [RequestHandler] - GET /api/v1/reports/monthly (IP: 192.168.1.105) [200] - 457ms
+[2025-04-01 08:04:12.901] [DEBUG] [ReportGenerator] - Generated monthly report in 432ms
+[2025-04-01 08:06:45.234] [INFO] [RequestHandler] - GET /api/v1/users/profile (IP: 192.168.1.105) [200] - 65ms
+[2025-04-01 08:12:34.567] [INFO] [RequestHandler] - GET /api/v1/products (IP: 192.168.1.108) [200] - 187ms
+[2025-04-01 08:13:05.678] [WARN] [DatabaseConnector] - Slow query detected (345ms): SELECT * FROM products WHERE category='electronics' AND price<500 ORDER BY rating DESC
+[2025-04-01 08:14:23.789] [INFO] [RequestHandler] - POST /api/v1/orders (IP: 192.168.1.108) [201] - 256ms
+[2025-04-01 08:14:23.890] [DEBUG] [OrderService] - Created order #ORD-28756 for user #USR-4532
+[2025-04-01 08:14:23.956] [DEBUG] [NotificationService] - Order confirmation email sent to user@example.com
+[2025-04-01 08:15:45.012] [INFO] [RequestHandler] - GET /api/v1/orders/ORD-28756 (IP: 192.168.1.108) [200] - 89ms
+[2025-04-01 08:23:12.345] [ERROR] [PaymentProcessor] - Failed to process payment for order #ORD-28757: Credit card declined
+[2025-04-01 08:23:12.456] [INFO] [RequestHandler] - POST /api/v1/payments (IP: 192.168.1.110) [400] - 478ms
+[2025-04-01 08:24:34.567] [INFO] [RequestHandler] - POST /api/v1/payments (IP: 192.168.1.110) [201] - 321ms
+[2025-04-01 08:24:34.678] [DEBUG] [PaymentProcessor] - Payment processed successfully for order #ORD-28757
+[2025-04-01 08:29:45.890] [WARN] [CacheManager] - Cache hit ratio below threshold (67%)
+[2025-04-01 08:34:56.012] [DEBUG] [SessionManager] - Cleaning up expired sessions
+[2025-04-01 08:34:56.123] [DEBUG] [SessionManager] - Removed 23 expired sessions
+[2025-04-01 08:45:12.234] [ERROR] [DatabaseConnector] - Connection lost to database
+[2025-04-01 08:45:12.456] [ERROR] [RequestHandler] - GET /api/v1/products (IP: 192.168.1.115) [500] - 234ms
+[2025-04-01 08:45:15.567] [INFO] [DatabaseConnector] - Attempting to reconnect to database (attempt 1)
+[2025-04-01 08:45:18.678] [INFO] [DatabaseConnector] - Database connection re-established successfully
+[2025-04-01 08:45:23.789] [INFO] [RequestHandler] - GET /api/v1/products (IP: 192.168.1.115) [200] - 187ms
+[2025-04-01 09:01:34.901] [INFO] [RequestHandler] - GET /api/v1/users (IP: 192.168.1.120) [401] - 45ms
+[2025-04-01 09:01:34.912] [WARN] [AuthenticationService] - Unauthorized access attempt to /api/v1/users from IP 192.168.1.120
+[2025-04-01 09:01:45.023] [INFO] [RequestHandler] - POST /api/v1/login (IP: 192.168.1.120) [200] - 134ms
+[2025-04-01 09:01:45.134] [DEBUG] [AuthenticationService] - User 'support@example.com' authenticated successfully
+[2025-04-01 09:02:12.245] [INFO] [RequestHandler] - GET /api/v1/users (IP: 192.168.1.120) [200] - 67ms
+[2025-04-01 09:15:34.456] [WARN] [SecurityService] - Multiple failed login attempts detected for username 'admin' from IP 192.168.1.130
+[2025-04-01 09:15:34.567] [WARN] [SecurityService] - Temporary lockout applied to IP 192.168.1.130 for 5 minutes
+[2025-04-01 09:23:45.678] [INFO] [RequestHandler] - GET /api/v1/health (IP: 192.168.1.105) [200] - 23ms
+[2025-04-01 09:30:56.789] [DEBUG] [PerformanceMonitor] - CPU usage: 45%, Memory: 2.3GB/4GB, Active threads: 28
+[2025-04-01 09:45:12.890] [INFO] [BackupService] - Starting scheduled database backup
+[2025-04-01 09:48:23.901] [INFO] [BackupService] - Database backup completed successfully (size: 256MB)
+[2025-04-01 10:01:34.012] [INFO] [RequestHandler] - GET /api/v1/products/search?q=smartphone (IP: 192.168.1.140) [200] - 345ms
+[2025-04-01 10:01:34.123] [DEBUG] [SearchService] - Search query 'smartphone' returned 48 results in 320ms
+[2025-04-01 10:12:45.234] [WARN] [ApiRateLimiter] - Rate limit exceeded for API key 'api_58942fcd' from IP 192.168.1.150
+[2025-04-01 10:12:45.345] [INFO] [RequestHandler] - GET /api/v1/products (IP: 192.168.1.150) [429] - 32ms
+[2025-04-01 10:23:56.456] [ERROR] [FileService] - Failed to upload file: Insufficient disk space
+[2025-04-01 10:23:56.567] [INFO] [RequestHandler] - POST /api/v1/files/upload (IP: 192.168.1.160) [500] - 234ms
+[2025-04-01 10:24:45.678] [WARN] [SystemMonitor] - Disk space below critical threshold (5% remaining)
+[2025-04-01 10:25:12.789] [INFO] [MaintenanceService] - Starting emergency cleanup of temporary files
+[2025-04-01 10:26:23.890] [INFO] [MaintenanceService] - Cleanup completed. Freed 4.2GB of disk space
+[2025-04-01 10:30:34.901] [INFO] [RequestHandler] - POST /api/v1/files/upload (IP: 192.168.1.160) [201] - 567ms
+[2025-04-01 10:45:12.012] [INFO] [UserService] - User account created: johndoe@example.com
+[2025-04-01 10:45:12.123] [DEBUG] [NotificationService] - Welcome email sent to johndoe@example.com
+[2025-04-01 11:01:23.234] [INFO] [RequestHandler] - GET /api/v1/analytics/dashboard (IP: 192.168.1.105) [200] - 876ms
+[2025-04-01 11:01:23.345] [WARN] [PerformanceMonitor] - Long request processing time detected: 876ms for /api/v1/analytics/dashboard
+[2025-04-01 11:12:34.456] [ERROR] [ExternalApiService] - Failed to connect to payment gateway (timeout after 5000ms)
+[2025-04-01 11:12:34.567] [INFO] [RequestHandler] - POST /api/v1/checkout (IP: 192.168.1.170) [503] - 5012ms
+[2025-04-01 11:13:45.678] [INFO] [ExternalApiService] - Reconnected to payment gateway
+[2025-04-01 11:15:56.789] [INFO] [RequestHandler] - POST /api/v1/checkout (IP: 192.168.1.170) [201] - 1234ms
+[2025-04-01 11:30:12.890] [DEBUG] [CacheManager] - Cache hit ratio: 78% (hits: 4567, misses: 1289)
+[2025-04-01 11:45:23.901] [INFO] [TaskScheduler] - Scheduled task 'data-aggregation' started
+[2025-04-01 11:48:34.012] [INFO] [TaskScheduler] - Scheduled task 'data-aggregation' completed successfully in 190s
+[2025-04-01 12:01:45.123] [INFO] [RequestHandler] - GET /api/v1/logout (IP: 192.168.1.105) [200] - 45ms
+[2025-04-01 12:01:45.234] [DEBUG] [SessionManager] - Session for user 'admin@example.com' terminated
+[2025-04-01 12:15:56.345] [INFO] [SystemMonitor] - System health check: OK
+[2025-04-01 12:30:12.456] [WARN] [NetworkMonitor] - Network latency to CDN increased to 145ms (threshold: 100ms)
+[2025-04-01 12:45:23.567] [INFO] [RequestHandler] - GET /api/v1/products/featured (IP: 192.168.1.180) [200] - 178ms
+[2025-04-01 13:01:34.678] [ERROR] [RequestHandler] - GET /api/v1/nonexistentendpoint (IP: 192.168.1.190) [404] - 12ms
+[2025-04-01 13:12:45.789] [INFO] [RequestHandler] - POST /api/v1/feedback (IP: 192.168.1.140) [201] - 87ms
+[2025-04-01 13:12:45.890] [DEBUG] [FeedbackService] - Feedback #FB-4567 received and stored
+[2025-04-01 13:30:56.901] [INFO] [RequestHandler] - GET /api/v1/products/5678 (IP: 192.168.1.195) [200] - 67ms
+[2025-04-01 13:45:12.012] [DEBUG] [ProductService] - Product view count updated for product #5678 (new count: 1289)
+[2025-04-01 14:01:23.123] [INFO] [ConfigManager] - Configuration reload requested
+[2025-04-01 14:01:23.234] [INFO] [ConfigManager] - Configuration reloaded successfully
+[2025-04-01 14:15:34.345] [WARN] [SecurityService] - Possible SQL injection attempt detected from IP 192.168.1.200
+[2025-04-01 14:15:34.456] [INFO] [RequestHandler] - GET /api/v1/products?category=electronics';DROP%20TABLE%20users;-- (IP: 192.168.1.200) [400] - 23ms
+[2025-04-01 14:15:34.567] [WARN] [SecurityService] - IP 192.168.1.200 added to watchlist
+[2025-04-01 14:30:45.678] [INFO] [MaintenanceService] - Starting index optimization
+[2025-04-01 14:32:56.789] [INFO] [MaintenanceService] - Index optimization completed successfully
+[2025-04-01 14:45:12.890] [DEBUG] [PerformanceMonitor] - CPU usage: 56%, Memory: 2.7GB/4GB, Active threads: 32
+[2025-04-01 15:01:23.901] [INFO] [WebsocketServer] - Client connected: WS-2345 (IP: 192.168.1.210)
+[2025-04-01 15:12:34.012] [DEBUG] [NotificationService] - Pushed notification to 23 active websocket clients
+[2025-04-01 15:23:45.123] [INFO] [WebsocketServer] - Client disconnected: WS-2345 (IP: 192.168.1.210)
+[2025-04-01 15:30:56.234] [ERROR] [DatabaseConnector] - Query failed: Deadlock detected
+[2025-04-01 15:30:56.345] [INFO] [RequestHandler] - POST /api/v1/inventory/update (IP: 192.168.1.105) [500] - 345ms
+[2025-04-01 15:31:12.456] [INFO] [RequestHandler] - POST /api/v1/inventory/update (IP: 192.168.1.105) [201] - 178ms
+[2025-04-01 15:45:23.567] [WARN] [MemoryManager] - High memory usage detected (85%)
+[2025-04-01 15:46:34.678] [INFO] [GarbageCollector] - Running full garbage collection
+[2025-04-01 15:46:45.789] [INFO] [MemoryManager] - Memory usage reduced to 62%
+[2025-04-01 16:01:56.890] [INFO] [UserService] - Password reset requested for user 'johndoe@example.com'
+[2025-04-01 16:01:56.901] [DEBUG] [NotificationService] - Password reset email sent to johndoe@example.com
+[2025-04-01 16:15:12.012] [INFO] [RequestHandler] - POST /api/v1/password-reset (IP: 192.168.1.220) [200] - 87ms
+[2025-04-01 16:15:12.123] [DEBUG] [UserService] - Password updated for user 'johndoe@example.com'
+[2025-04-01 16:30:23.234] [INFO] [RequestHandler] - GET /api/v1/products (IP: 192.168.1.220) [200] - 154ms
+[2025-04-01 16:45:34.345] [INFO] [BackupService] - Starting incremental backup
+[2025-04-01 16:46:45.456] [INFO] [BackupService] - Incremental backup completed successfully (size: 45MB)
+[2025-04-01 17:01:56.567] [DEBUG] [SessionManager] - Active sessions: 145
+[2025-04-01 17:15:12.678] [INFO] [RequestHandler] - GET /api/v1/reports/daily (IP: 192.168.1.105) [200] - 321ms
+[2025-04-01 17:15:12.789] [DEBUG] [ReportGenerator] - Generated daily report in 298ms
+[2025-04-01 17:30:23.890] [WARN] [ApiRateLimiter] - Rate limit approaching for API key 'api_67890abc' (90% used)
+[2025-04-01 17:45:34.901] [INFO] [EmailService] - Sent 234 newsletter emails
+[2025-04-01 18:01:45.012] [INFO] [SystemMonitor] - System health check: OK
+[2025-04-01 18:15:56.123] [ERROR] [ExternalApiService] - Error calling shipment tracking API: 503 Service Unavailable
+[2025-04-01 18:30:12.234] [INFO] [RequestHandler] - GET /api/v1/orders/ORD-28756/tracking (IP: 192.168.1.225) [503] - 765ms
+[2025-04-01 18:45:23.345] [INFO] [ExternalApiService] - Shipment tracking API is back online
+[2025-04-01 19:01:34.456] [DEBUG] [PerformanceMonitor] - Database connection pool: 12/50 connections active
+[2025-04-01 19:15:45.567] [INFO] [RequestHandler] - GET /api/v1/products/5678/reviews (IP: 192.168.1.230) [200] - 234ms
+[2025-04-01 19:30:56.678] [INFO] [RequestHandler] - POST /api/v1/products/5678/reviews (IP: 192.168.1.230) [201] - 156ms
+[2025-04-01 19:45:12.789] [DEBUG] [NotificationService] - Product review notification sent to product owner
+[2025-04-01 20:01:23.890] [INFO] [TaskScheduler] - Scheduled task 'log-rotation' started
+[2025-04-01 20:01:45.901] [INFO] [TaskScheduler] - Scheduled task 'log-rotation' completed successfully in 22s
+[2025-04-01 20:15:56.012] [WARN] [SecurityService] - Brute force attack detected on login endpoint from IP 192.168.1.240
+[2025-04-01 20:15:56.123] [INFO] [SecurityService] - IP 192.168.1.240 blocked for 24 hours
+[2025-04-01 20:30:12.234] [INFO] [RequestHandler] - GET /api/v1/products (IP: 192.168.1.245) [200] - 167ms
+[2025-04-01 20:45:23.345] [ERROR] [FileService] - File not found: /uploads/products/img_5678.jpg
+[2025-04-01 20:45:23.456] [INFO] [RequestHandler] - GET /uploads/products/img_5678.jpg (IP: 192.168.1.245) [404] - 23ms
+[2025-04-01 21:01:34.567] [INFO] [CronService] - Starting nightly database maintenance
+[2025-04-01 21:15:45.678] [INFO] [DatabaseService] - Running VACUUM on main database
+[2025-04-01 21:30:56.789] [INFO] [DatabaseService] - Running REINDEX on products table
+[2025-04-01 21:45:12.890] [INFO] [DatabaseService] - Running ANALYZE on all tables
+[2025-04-01 22:01:23.901] [INFO] [CronService] - Nightly database maintenance completed successfully
+[2025-04-01 22:15:34.012] [DEBUG] [PerformanceMonitor] - CPU usage: 12%, Memory: 1.8GB/4GB, Active threads: 15
+[2025-04-01 22:30:45.123] [INFO] [RequestHandler] - GET /api/v1/system/status (IP: 192.168.1.105) [200] - 34ms
+[2025-04-01 22:45:56.234] [INFO] [UserService] - User 'johndoe@example.com' logged in
+[2025-04-01 23:01:12.345] [INFO] [RequestHandler] - GET /api/v1/orders/user (IP: 192.168.1.250) [200] - 187ms
+[2025-04-01 23:15:23.456] [INFO] [UserService] - User 'johndoe@example.com' logged out
+[2025-04-01 23:30:34.567] [INFO] [SystemMonitor] - System health check: OK
+[2025-04-01 23:45:45.678] [INFO] [BackupService] - Daily backup starting
+[2025-04-01 23:59:56.789] [INFO] [BackupService] - Daily backup completed successfully (size: 1.2GB)
+[2025-04-02 00:01:12.890] [INFO] [AppServer] - Day end processing started
+[2025-04-02 00:15:23.901] [INFO] [StatisticsService] - Generated daily statistics
+[2025-04-02 00:30:34.012] [INFO] [AppServer] - Day end processing completed
